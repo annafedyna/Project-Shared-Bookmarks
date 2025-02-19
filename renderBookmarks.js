@@ -1,12 +1,14 @@
 import { getData } from "./storage.js";
 import { calculatedaysAgo } from "./calculateDaysAgo.js";
+import { reversedChronologicalOrder } from "./reversedChronologicalOrder.js";
 
 export function renderBookmarksUser(userId) {
-  const userData = getData(userId);
+  let userData = getData(userId);
   const addNewBookmarkForm = document.querySelector("#add-new-bookmark");
   const bookmarksContainer = document.querySelector("#bookmarks-container");
-
+  bookmarksContainer.innerHTML = ``;
   if (userData) {
+    userData = reversedChronologicalOrder(userData);
     for (const bookmark of userData) {
       const newBookmark = document.createElement("div");
 
@@ -20,7 +22,9 @@ export function renderBookmarksUser(userId) {
 
 
       const daysAgo = document.createElement("p");
-      daysAgo.textContent = calculatedaysAgo(bookmark.date);
+      daysAgo.textContent = `Posted: ${calculatedaysAgo(
+        bookmark.date
+      )}`;
 
       newBookmark.appendChild(newBookmarkTitle);
       newBookmark.appendChild(description);
