@@ -23,14 +23,18 @@ window.onload = function () {
     if (userId) {
       addNewBookmark(userId);
     } else {
-      alert('Choose an user to add new bookmark!')
+      alert("Choose an user to add new bookmark!");
     }
   });
 
   const deleteAllButton = document.querySelector("#delete-all-bookmarks");
   deleteAllButton.addEventListener("click", (event) => {
     event.preventDefault();
-    clearData(userId);
-    renderBookmarksUser(userId);
+    if (userId) {
+      clearData(userId);
+      renderBookmarksUser(userId);
+    } else {
+      alert("Not able to delete! You have not chosen an user !");
+    }
   });
 };
