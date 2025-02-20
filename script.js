@@ -12,9 +12,16 @@ window.onload = function () {
   userSelect.addEventListener("change", (event) => {
     event.preventDefault();
     const selectUserMessage = document.querySelector("#select-user-message");
-    selectUserMessage.style.display = "none";
+    const bookmarksContainer = document.querySelector("#bookmarks-container");
     userId = getUserId();
-    renderBookmarksUser(userId);
+
+    if (userId) {
+      renderBookmarksUser(userId);
+      selectUserMessage.style.display = "none";
+    } else {
+      bookmarksContainer.innerHTML = ``;
+      selectUserMessage.style.display = "block";
+    }
   });
 
   const addNewBookmarkForm = document.querySelector("#add-new-bookmark");
