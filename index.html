@@ -9,28 +9,32 @@
     <title>Bookmarks</title>
   </head>
   <body>
-    <div class="select-user">
-       <label for="user-select">Select a User </label>
-      <select name="User" id ='user-select'>
-        <option>-- users --</option>
-      </select>
-    </div>
- 
-    <form id="add-new-bookmark">
+    <div class ="add-form"> 
+      <form id="add-new-bookmark">
         <label for="title">Title:</label><br />
-        <input type="text" id="title" name="title" /><br />
+        <input type="text" id="title" name="title" required/><br />
         <label for="url">URL:<br />
-        <input type="text" id="url" name="url" /><br />
+        <input type="text" id="url" name="url" required/><br />
         <label for="description">Description:<br />
-        <input type="text" id="description" name="description" />
+        <input type="text" id="description" name="description" required/>
         <input type="submit">
-    </form>
+      </form>
+    </div>
+    <div class="user-bookmarks">
+      <div class="select-user">
+        <label for="user-select">Select a User </label>
+        <select name="User" id ='user-select'>
+          <option>-- users --</option>
+        </select>
+      </div>
 
-    <div class="main-bookmarks">  
-      <h1> Bookmarks </h1>
-      <p id="select-user-message"> Select the user to see their saved bookmarks. </p>
-      <div id="bookmarks-container"></div>
-      <button id="delete-all-bookmarks">Delete all bookmarks for this user</button>
+      <div class="main-bookmarks">  
+        <h1> Bookmarks </h1>
+        <p id="select-user-message"> Select the user to see their saved bookmarks. </p>
+        <div id="bookmarks-container"></div>
+        <button id="delete-all-bookmarks">Delete all </button>
+      </div>
+
     </div>
   </body>
 </html>

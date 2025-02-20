@@ -1,6 +1,6 @@
-import { getData } from "./storage.js";
-import { calculatedaysAgo } from "./calculateDaysAgo.js";
-import { reversedChronologicalOrder } from "./reversedChronologicalOrder.js";
+import { getData } from "./data/storage.js";
+import { calculatedaysAgo } from "./utils/calculateDaysAgo.js";
+import { reversedChronologicalOrder } from "./utils/reversedChronologicalOrder.js";
 
 export function renderBookmarksUser(userId) {
   let userData = getData(userId);
@@ -20,11 +20,8 @@ export function renderBookmarksUser(userId) {
       const description = document.createElement("p");
       description.textContent = bookmark.description;
 
-
       const daysAgo = document.createElement("p");
-      daysAgo.textContent = `Posted: ${calculatedaysAgo(
-        bookmark.date
-      )}`;
+      daysAgo.textContent = `Posted: ${calculatedaysAgo(bookmark.date)}`;
 
       newBookmark.appendChild(newBookmarkTitle);
       newBookmark.appendChild(description);
