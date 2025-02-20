@@ -1,14 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="This is a website for saving bookmarks for different users.">
     <script type="module" src="script.js"></script>
     <link rel="stylesheet" href="styles.css">
+    <title>Bookmarks</title>
   </head>
   <body>
-    <select name="User" id ='user-select'>
-      <option>-- Please choose an User --</option>
-    </select>
-
+    <div class="select-user">
+       <label for="user-select">Select a User </label>
+      <select name="User" id ='user-select'>
+        <option>-- users --</option>
+      </select>
+    </div>
  
     <form id="add-new-bookmark">
         <label for="title">Title:</label><br />
@@ -20,11 +26,11 @@
         <input type="submit">
     </form>
 
-    <h1> Bookmarks </h1>
-
-    <p id="select-user-message"> Select the user to see their saved bookmarks. </p>
-    <div id="bookmarks-container"></div>
-
-    <button id="delete-all-bookmarks">Delete all bookmarks for this user</button>
+    <div class="main-bookmarks">  
+      <h1> Bookmarks </h1>
+      <p id="select-user-message"> Select the user to see their saved bookmarks. </p>
+      <div id="bookmarks-container"></div>
+      <button id="delete-all-bookmarks">Delete all bookmarks for this user</button>
+    </div>
   </body>
 </html>
